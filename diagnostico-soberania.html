@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Autodiagnóstico de Soberanía Tecnológica | Psyware SSL</title>
+<meta name="description" content="Autoevaluación gratuita de soberanía tecnológica para tu empresa. 20 preguntas, resultado orientativo automático." />
+<meta name="theme-color" content="#015eea" />
+<link rel="canonical" href="https://www.psyware.ar/diagnostico-soberania.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Psyware SSL" />
+<meta property="og:locale" content="es_AR" />
+<meta property="og:title" content="Autodiagnóstico de Soberanía Tecnológica | Psyware SSL" />
+<meta property="og:description" content="Autoevaluación gratuita de soberanía tecnológica para tu empresa. 20 preguntas, resultado orientativo automático." />
+<meta property="og:url" content="https://www.psyware.ar/diagnostico-soberania.html" />
+<meta property="og:image" content="https://www.psyware.ar/assets/img/psyware-logo-dark.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Autodiagnóstico de Soberanía Tecnológica | Psyware SSL" />
+<meta name="twitter:description" content="Autoevaluación gratuita de soberanía tecnológica para tu empresa. Resultado orientativo automático." />
+<meta name="twitter:image" content="https://www.psyware.ar/assets/img/psyware-logo-dark.png" />
+<link rel="icon" href="assets/img/psyware-favicon.png" type="image/png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700&family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css?v=20260731" />
+<link rel="stylesheet" href="css/animations.css?v=20260731" />
+<link rel="stylesheet" href="css/responsive.css?v=20260731" />
+<link rel="stylesheet" href="css/diagnostico.css" />
+</head>
+<body>
+<a class="skip-link" href="#quiz">Saltar al cuestionario</a>
+
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+    <a class="nav-logo" href="index.html">
+      <img class="nav-logo__img nav-logo__img--white" src="assets/img/psyware-logo-white.png" alt="Psyware SSL" />
+      <img class="nav-logo__img nav-logo__img--dark" src="assets/img/psyware-logo-dark.png" alt="Psyware SSL" />
+    </a>
+    <nav class="nav-menu" id="navMenu">
+      <a href="index.html">Inicio</a>
+      <a href="acerca-de-nosotros.html">Acerca de Nosotros</a>
+      <a href="productos-y-servicios.html">Productos y Servicios</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="diagnosticos.html" class="is-active">Diagnóstico</a>
+      <a href="prensa.html">Prensa</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <a class="btn btn-white nav-cta" href="contacto.html">Contactanos</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<header class="diag-header">
+  <div class="container diag-wrap">
+    <span class="eyebrow"><span class="pulse"></span>Autoevaluación gratuita · Software libre, infraestructura propia y privacidad</span>
+    <h1>¿Qué tan soberana es la tecnología de tu empresa?</h1>
+    <p>Respondé 20 preguntas rápidas y recibí una valoración automática y orientativa de cuánto dependés de proveedores externos y qué tan protegidos están tus datos. Al terminar podés recibir el resultado por email.</p>
+    <div class="diag-header__meta"><span>20 preguntas</span><span>~4 minutos</span><span>Gratis</span><span>Sin registro</span></div>
+  </div>
+</header>
+
+<div class="diag-progress" id="progressWrap">
+  <div class="diag-progress__inner">
+    <div class="diag-progress__row">
+      <div class="diag-progress__chip"><span id="progNum">0</span> / 20</div>
+      <div class="diag-progress__bar"><div class="diag-progress__fill" id="progressFill"></div></div>
+    </div>
+    <div class="diag-progress__pct" id="progPct">0%</div>
+  </div>
+</div>
+
+<main id="main">
+<form id="quiz" class="container diag-wrap diag-quiz" novalidate></form>
+
+<div class="container diag-wrap">
+  <section class="diag-capture" id="captureSec" aria-label="Datos para recibir el resultado">
+    <h3>Completá tus datos y recibí tu resultado</h3>
+    <p>Al enviar calculamos tu diagnóstico y te lo mandamos por email automáticamente. Una copia llega a nuestro equipo por si querés una consulta profesional. Sin compromiso.</p>
+    <div class="diag-row2">
+      <div class="field"><label for="fNombre">Nombre <span class="req">*</span></label><input type="text" id="fNombre" autocomplete="name" placeholder="Tu nombre"></div>
+      <div class="field"><label for="fEmpresa">Empresa</label><input type="text" id="fEmpresa" autocomplete="organization" placeholder="Nombre de tu empresa"></div>
+    </div>
+    <div class="diag-row2">
+      <div class="field"><label for="fEmail">Email <span class="req">*</span></label><input type="email" id="fEmail" autocomplete="email" placeholder="vos@empresa.com"></div>
+      <div class="field"><label for="fTel">Teléfono</label><input type="tel" id="fTel" autocomplete="tel" placeholder="Opcional"></div>
+    </div>
+    <div class="diag-form-err" id="formErr" role="alert"></div>
+    <button type="button" class="diag-btn" id="sendBtn">Enviar y ver mi resultado →</button>
+    <div class="diag-privacy">Tus respuestas y datos se envían de forma segura a contacto@psyware.ar y recibís una copia en tu email. Se usan solo para responder tu consulta.</div>
+  </section>
+</div>
+
+<section id="result" class="container diag-wrap diag-result" aria-live="polite">
+  <div class="diag-res-card">
+    <div class="diag-sent-banner" id="sentBanner"></div>
+    <div class="diag-res-head">
+      <div class="diag-res-badge" id="resBadge"><span class="dot"></span><span id="resBadgeTxt"></span></div>
+      <div class="diag-res-title" id="resTitle"></div>
+      <div class="diag-res-desc" id="resDesc"></div>
+      <div class="diag-gauge">
+        <div class="diag-gauge-num" id="gaugeNum"></div>
+        <div class="diag-gauge-bar"><div class="diag-gauge-fill" id="gaugeFill"></div></div>
+        <div class="diag-gauge-lbl"><span>Dependencia alta</span><span>Índice de soberanía tecnológica</span><span>Soberanía alta</span></div>
+      </div>
+    </div>
+    <div class="diag-counts" id="counts"></div>
+    <div class="diag-res-foot">
+      <a href="https://wa.me/5493412280272?text=Hola%20Psyware,%20hice%20el%20autodiagn%C3%B3stico%20de%20soberan%C3%ADa%20tecnol%C3%B3gica%20y%20quiero%20una%20consulta" target="_blank" rel="noopener" class="diag-btn">Quiero una consulta profesional →</a>
+      <button type="button" class="diag-restart" id="restartBtn">↻ Empezar de nuevo</button>
+    </div>
+  </div>
+</section>
+
+<p class="diag-disclaimer">Este cuestionario es una herramienta de autoevaluación orientativa, no una auditoría técnica formal. Sirve para identificar puntos de partida y decidir si conviene una evaluación profesional más profunda. Psyware SSL — especialistas en software libre, infraestructura propia y privacidad de datos.</p>
+</main>
+
+<noscript><p style="text-align:center;padding:120px 24px;color:#4a4a4a">Este autodiagnóstico necesita JavaScript activado para funcionar. Podés escribirnos directamente a contacto@psyware.ar.</p></noscript>
+
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <img class="nav-logo__img" src="assets/img/psyware-logo-white.png" alt="Psyware SSL" />
+      <p>Soluciones en seguridad informática, telecomunicaciones y capacitación para empresas que no pueden fallar.</p>
+      <div class="footer__contact">
+        <a href="tel:+543412419258">+54 341 2419258</a>
+        <a href="tel:+543426460027">+54 342 6460027</a>
+        <a href="https://wa.me/5493412280272" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://maps.app.goo.gl/BehnoAJCyURJMsor6" target="_blank" rel="noopener">España 1116 — S2000DBX Rosario</a>
+      </div>
+    </div>
+    <div class="footer__col">
+      <h5>Navegación</h5>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="acerca-de-nosotros.html">Acerca de Nosotros</a></li>
+        <li><a href="productos-y-servicios.html">Productos y Servicios</a></li>
+        <li><a href="cursos.html">Cursos</a></li>
+        <li><a href="diagnosticos.html">Diagnóstico</a></li>
+        <li><a href="prensa.html">Prensa</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="assets/pdf/brochure-intelix-psyware.pdf" target="_blank" rel="noopener">Descargar Brochure (PDF)</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h5>Redes Sociales</h5>
+      <ul>
+        <li><a href="https://www.facebook.com/NTLXIngenieria" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.instagram.com/psyware_ssl" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/company/intelix-ingenieria-&-telecomunicaciones" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://x.com/fmvillares" target="_blank" rel="noopener">X (Twitter)</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h5>Data Fiscal</h5>
+      <div class="footer__badge">
+        <a href="http://qr.afip.gob.ar/?qr=Lny1AnEBC1ELZ3IGXMPOgA,," target="_blank" rel="noopener">
+          <img src="https://www.afip.gob.ar/images/f960/DATAWEB.jpg" alt="Data Fiscal AFIP" loading="lazy" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <p>&copy; <span id="year"></span> Psyware SSL. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/5493412280272" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
+<button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script src="js/main.js?v=20260731"></script>
+<script>
+(function(){
+  var QDATA = [
+    {"b":"Dependencia de proveedores","q":"¿Qué porcentaje de tu infraestructura crítica (correo, archivos, comunicaciones) depende de un único proveedor extranjero (Google, Microsoft, Amazon)?","m":false,"o":["Bajo, usamos varios proveedores o infraestructura propia","Moderado, algunas áreas críticas dependen de uno solo","Alto, casi todo está en un solo proveedor extranjero","No lo sé"]},
+    {"b":"Dependencia de proveedores","q":"Si mañana ese proveedor subiera precios drásticamente o discontinuara el servicio, ¿tu empresa podría migrar sin parar operaciones?","m":false,"o":["Sí, tenemos alternativas evaluadas o datos exportables","Podríamos, pero con esfuerzo e interrupciones","No, quedaríamos muy expuestos","Nunca lo evaluamos"]},
+    {"b":"Dependencia de proveedores","q":"¿Conocés en qué país (y bajo qué legislación) se almacenan físicamente los datos de tu empresa en la nube?","m":false,"o":["Sí, lo sabemos y lo elegimos conscientemente","Tenemos una idea aproximada","No, nunca lo revisamos","No sabía que era relevante"]},
+    {"b":"Software libre","q":"¿Tu empresa usa software libre o de código abierto (Linux, LibreOffice, Nextcloud, PostgreSQL, etc.) en alguna parte de su operación?","m":true,"o":["Sí, en varias áreas de forma habitual","Sí, pero de forma puntual o aislada","No, usamos exclusivamente software propietario","No sabría decir qué usamos"]},
+    {"b":"Software libre","q":"¿Evaluaron alguna vez el costo total (licencias + soporte) de su software propietario actual frente a alternativas libres equivalentes?","m":false,"o":["Sí, hicimos una comparación concreta","Lo pensamos pero no lo formalizamos","No, nunca lo evaluamos","No sabíamos que había alternativas"]},
+    {"b":"Software libre","q":"¿El equipo técnico tiene capacidad (propia o de un proveedor de confianza) para mantener y personalizar herramientas de código abierto?","m":false,"o":["Sí, tenemos esa capacidad","Parcialmente, dependeríamos de terceros","No, no tenemos esa capacidad hoy","No lo sé"]},
+    {"b":"Software libre","q":"¿Sabés qué significa quedar \"atado\" a un proveedor (vendor lock-in) y cómo se manifiesta en formatos de archivo o APIs cerradas?","m":false,"o":["Sí, lo entendemos y lo tenemos en cuenta al elegir herramientas","Tengo una idea general","No, no conozco el concepto","Nunca lo escuché"]},
+    {"b":"Privacidad y datos","q":"¿Tu empresa maneja datos personales de clientes o empleados (nombres, DNI, historia clínica, datos bancarios)?","m":false,"o":["Sí, y tenemos políticas claras de tratamiento","Sí, pero sin políticas formales","No manejamos datos personales sensibles","No lo evaluamos"]},
+    {"b":"Privacidad y datos","q":"¿Existe un responsable o proceso definido para responder si un cliente pide que se eliminen sus datos?","m":false,"o":["Sí, tenemos un proceso definido","Lo resolveríamos caso por caso","No, no tenemos ningún proceso","No sabíamos que era una obligación"]},
+    {"b":"Privacidad y datos","q":"¿Los contratos con tus proveedores de software/nube especifican qué pueden hacer con tus datos (entrenar modelos, venderlos a terceros, etc.)?","m":false,"o":["Sí, los revisamos y son claros","No los revisamos en detalle","No, nunca leímos esas cláusulas","No sabía que había que revisarlas"]},
+    {"b":"Privacidad y datos","q":"¿Aplican cifrado a los datos sensibles, tanto almacenados como en tránsito?","m":true,"o":["Sí, cifrado en reposo y en tránsito","Solo en tránsito (HTTPS) pero no en reposo","No aplicamos cifrado","No sabría decir"]},
+    {"b":"Infraestructura propia","q":"¿Tu empresa tiene o considera tener infraestructura propia (servidores locales, NAS, nube privada) para datos críticos?","m":false,"o":["Sí, tenemos infraestructura propia para lo crítico","Lo evaluamos pero no lo implementamos","No, todo está en la nube pública","No lo vemos necesario"]},
+    {"b":"Infraestructura propia","q":"¿Sabés qué diferencia hay entre alojar tus sistemas en un servidor propio versus depender 100% de servicios en la nube de terceros?","m":false,"o":["Sí, entendemos ventajas y desventajas de cada uno","Tengo una idea general","No, no conozco bien la diferencia","Nunca lo pensé"]},
+    {"b":"Infraestructura propia","q":"¿Tienen copias de respaldo de su información que no dependan del mismo proveedor donde está alojada la información original?","m":false,"o":["Sí, con backups independientes y verificados","Tenemos backups pero en el mismo proveedor","No tenemos backups independientes","No lo sé"]},
+    {"b":"Marco legal y cumplimiento","q":"¿Conocés qué obligaciones te impone la Ley de Protección de Datos Personales (Ley 25.326) sobre cómo tratar datos de clientes?","m":false,"o":["Sí, la conocemos y la aplicamos","Tenemos una idea general","No, no la conocemos","Nunca escuché sobre esta ley"]},
+    {"b":"Marco legal y cumplimiento","q":"Si tus datos se almacenan en servidores de otro país, ¿sabés bajo qué ley (por ejemplo, la de EE.UU. con el Cloud Act) podrían ser accedidos por terceros?","m":false,"o":["Sí, lo tenemos en cuenta al elegir proveedores","Tengo una idea general del tema","No, nunca lo consideré","No sabía que esto era posible"]},
+    {"b":"Marco legal y cumplimiento","q":"¿La empresa firmó alguna vez un acuerdo de confidencialidad o tratamiento de datos con sus proveedores tecnológicos?","m":false,"o":["Sí, de forma sistemática","Alguna vez, no de forma sistemática","No, nunca","No sabía que era necesario"]},
+    {"b":"Estrategia y prioridades","q":"¿La dirección de la empresa considera la soberanía tecnológica (reducir dependencia externa) una prioridad para los próximos 12 meses?","m":false,"o":["Sí, es una prioridad explícita","Es de interés, pero no priorizada","No es una prioridad actual","Nunca se habló del tema"]},
+    {"b":"Estrategia y prioridades","q":"Si hoy tuvieran que migrar un servicio crítico de un proveedor extranjero a una solución local o de código abierto, ¿sabrían por dónde empezar?","m":false,"o":["Sí, tenemos un plan o sabemos a quién consultar","Tenemos una idea aproximada","No, no sabríamos por dónde arrancar","Nunca lo pensamos"]},
+    {"b":"Percepción general","q":"En una escala de confianza, ¿qué tan soberana y protegida creés que está hoy la información de tu empresa?","m":false,"o":["Muy soberana, tenemos control real sobre nuestros datos","Medianamente, hay dependencias que nos preocupan","Poco soberana, sabemos que dependemos mucho de terceros","No tengo forma de saberlo"]}
+  ];
+  var quiz=document.getElementById('quiz');
+  var answers={};
+  var LETTERS=['A','B','C','D'];
+  function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+  var curBlock=null, bi=0;
+  QDATA.forEach(function(q,i){
+    if(q.b!==curBlock){
+      curBlock=q.b; bi++;
+      var bh=document.createElement('div');
+      bh.className='diag-block-head';
+      bh.innerHTML='<span class="bn">'+String(bi).padStart(2,'0')+'</span>'+q.b;
+      quiz.appendChild(bh);
+    }
+    var card=document.createElement('div');
+    card.className='diag-q'; card.id='q'+i;
+    var multi=q.m;
+    var top='<div class="diag-q__top"><div class="diag-q__num">'+(i+1)+'</div><div><div class="diag-q__text">'+escapeHtml(q.q)+'</div>'+(multi?'<span class="diag-q__multi">Podés marcar más de una</span>':'')+'</div></div>';
+    var opts='<div class="diag-opts">';
+    q.o.forEach(function(txt,oi){
+      var L=LETTERS[oi];
+      var typ=multi?'checkbox':'radio';
+      var cls=multi?'is-check':'is-radio';
+      opts+='<label class="diag-opt '+cls+'"><input type="'+typ+'" name="q'+i+'" value="'+L+'"><span class="diag-mark"></span><span class="diag-otxt"><span class="diag-ltr">'+L+')</span> '+escapeHtml(txt)+'</span></label>';
+    });
+    opts+='</div>';
+    card.innerHTML=top+opts;
+    quiz.appendChild(card);
+  });
+  quiz.addEventListener('change', function(e){
+    var inp=e.target; if(inp.tagName!=='INPUT') return;
+    var idx=parseInt(inp.name.slice(1),10);
+    var card=document.getElementById('q'+idx);
+    var checked=Array.prototype.map.call(card.querySelectorAll('input:checked'), function(x){return x.value;});
+    answers[idx]=checked;
+    card.querySelectorAll('.diag-opt').forEach(function(o){ o.classList.toggle('is-selected', o.querySelector('input').checked); });
+    card.classList.toggle('is-answered', checked.length>0);
+    if(checked.length>0) card.classList.remove('is-missing');
+    updateProgress();
+  });
+  function updateProgress(){
+    var done=Object.keys(answers).filter(function(k){return answers[k]&&answers[k].length>0;}).length;
+    var pct=Math.round(done/20*100);
+    document.getElementById('progNum').textContent=done;
+    document.getElementById('progressFill').style.width=pct+'%';
+    document.getElementById('progPct').textContent=pct+'%';
+  }
+  var VAL={A:3,B:2,C:1,D:0};
+  function compute(){
+    var counts={A:0,B:0,C:0,D:0}, sum=0;
+    QDATA.forEach(function(q,i){
+      var sel=answers[i]||[];
+      sel.forEach(function(L){counts[L]++;});
+      var v=0; sel.forEach(function(L){v+=VAL[L];});
+      if(sel.length) sum += v/sel.length;
+    });
+    var idx=Math.round(sum/(20*3)*100);
+    var order=['D','C','B','A'], best='A', bestc=-1;
+    order.forEach(function(L){ if(counts[L]>bestc){bestc=counts[L];best=L;} });
+    return {counts:counts, idx:idx, letter:best};
+  }
+  var LEVELS={
+    A:{txt:'Nivel de soberanía alto',color:'var(--blue)',rgb:'1,94,234',title:'🟢 Control real sobre tu tecnología',
+       desc:'Tu empresa tiene baja dependencia de proveedores externos, usa software libre donde tiene sentido y protege sus datos de forma consciente. El siguiente paso es documentar y auditar esas buenas prácticas.'},
+    B:{txt:'Nivel intermedio',color:'#e8b455',rgb:'232,180,85',title:'🟡 Soberanía parcial, con dependencias',
+       desc:'Hay conciencia del tema y algunas buenas prácticas, pero persisten dependencias críticas de proveedores extranjeros y vacíos en privacidad de datos que conviene resolver.'},
+    C:{txt:'Nivel de dependencia alto',color:'var(--pink)',rgb:'242,41,91',title:'🔴 Alta dependencia externa',
+       desc:'Tu empresa depende fuertemente de proveedores extranjeros y tiene poca visibilidad sobre dónde y cómo se tratan sus datos. Conviene priorizar un diagnóstico de migración y protección de datos.'},
+    D:{txt:'Soberanía por desconocimiento',color:'#e8b455',rgb:'232,180,85',title:'⚠️ Falta información de base',
+       desc:'El mayor riesgo no es solo técnico sino de desconocimiento: no saber dónde están tus datos ni qué alternativas existen. Un diagnóstico técnico te daría un punto de partida concreto.'}
+  };
+  var WEB3FORMS_KEY = "ae96a81b-fc42-41e3-a4c7-5c16fc1a9ba3";
+
+  function showResult(r){
+    var lv=LEVELS[r.letter];
+    var b=document.getElementById('resBadge');
+    b.style.color=lv.color; b.style.background='rgba('+lv.rgb+',0.10)'; b.style.border='1px solid rgba('+lv.rgb+',0.4)';
+    b.querySelector('.dot').style.background=lv.color;
+    document.getElementById('resBadgeTxt').textContent=lv.txt;
+    document.getElementById('resTitle').textContent=lv.title;
+    document.getElementById('resDesc').textContent=lv.desc;
+    document.getElementById('gaugeNum').textContent=r.idx+'%';
+    document.getElementById('gaugeNum').style.color=lv.color;
+    var gf=document.getElementById('gaugeFill');
+    var c=document.getElementById('counts'); c.innerHTML='';
+    [['A','Bases sólidas'],['B','Parciales'],['C','Débiles'],['D','No lo sé']].forEach(function(pp){
+      var el=document.createElement('div'); el.className='diag-count';
+      el.innerHTML='<b>'+r.counts[pp[0]]+'</b><span>'+pp[0]+' · '+pp[1]+'</span>';
+      c.appendChild(el);
+    });
+    document.getElementById('captureSec').style.display='none';
+    document.getElementById('result').classList.add('is-shown');
+    document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});
+    setTimeout(function(){ gf.style.width=r.idx+'%'; },120);
+  }
+
+  function buildDetail(nombre,empresa,email,tel,r,lv){
+    var lines=[];
+    lines.push('CONTACTO');
+    lines.push('Nombre: '+nombre);
+    if(empresa) lines.push('Empresa: '+empresa);
+    lines.push('Email: '+email);
+    if(tel) lines.push('Teléfono: '+tel);
+    lines.push('');
+    lines.push('RESULTADO');
+    lines.push('Nivel: '+lv.txt);
+    lines.push('Índice de soberanía tecnológica: '+r.idx+'%');
+    lines.push('Respuestas — A: '+r.counts.A+' | B: '+r.counts.B+' | C: '+r.counts.C+' | D (no sé): '+r.counts.D);
+    lines.push('');
+    lines.push('DETALLE DE RESPUESTAS');
+    QDATA.forEach(function(q,i){ lines.push((i+1)+'. ['+(answers[i]||[]).join('/')+'] '+q.q); });
+    return lines.join('\n');
+  }
+
+  document.getElementById('sendBtn').addEventListener('click', function(){
+    var err=document.getElementById('formErr');
+    var missing=[];
+    for(var i=0;i<20;i++){ if(!answers[i]||answers[i].length===0) missing.push(i); }
+    if(missing.length){
+      err.textContent='Te faltan '+missing.length+' pregunta'+(missing.length>1?'s':'')+' por responder antes de enviar.';
+      missing.forEach(function(i){document.getElementById('q'+i).classList.add('is-missing');});
+      document.getElementById('q'+missing[0]).scrollIntoView({behavior:'smooth',block:'center'});
+      return;
+    }
+    var nombre=document.getElementById('fNombre').value.trim();
+    var empresa=document.getElementById('fEmpresa').value.trim();
+    var email=document.getElementById('fEmail').value.trim();
+    var tel=document.getElementById('fTel').value.trim();
+    if(!nombre){ err.textContent='Ingresá tu nombre.'; document.getElementById('fNombre').focus(); return; }
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ err.textContent='Ingresá un email válido.'; document.getElementById('fEmail').focus(); return; }
+    err.textContent='';
+    var r=compute(); var lv=LEVELS[r.letter];
+    var detail=buildDetail(nombre,empresa,email,tel,r,lv);
+    var btn=this; btn.disabled=true; var oldTxt=btn.textContent; btn.textContent='Enviando…';
+    var payload={
+      access_key: WEB3FORMS_KEY,
+      subject: 'Autodiagnóstico soberanía tecnológica'+(empresa?(' — '+empresa):(' — '+nombre)),
+      from_name: 'Autodiagnóstico Psyware',
+      replyto: email,
+      Nombre: nombre, Empresa: empresa||'—', Email: email, 'Teléfono': tel||'—',
+      Nivel: lv.txt, 'Índice de soberanía tecnológica': r.idx+'%',
+      'Resumen': 'A:'+r.counts.A+' B:'+r.counts.B+' C:'+r.counts.C+' D:'+r.counts.D,
+      message: detail
+    };
+    fetch('https://api.web3forms.com/submit',{
+      method:'POST', headers:{'Content-Type':'application/json',Accept:'application/json'}, body: JSON.stringify(payload)
+    }).then(function(res){return res.json();}).then(function(d){
+      var sb=document.getElementById('sentBanner');
+      if(d && d.success){
+        sb.style.background='rgba(1,94,234,.08)'; sb.style.color='var(--text)';
+        sb.innerHTML='✓ Listo, '+escapeHtml(nombre.split(" ")[0])+'. Te enviamos el resultado a <strong>'+escapeHtml(email)+'</strong> y una copia llegó a nuestro equipo. Revisá tu bandeja (y el spam, por las dudas).';
+      } else {
+        sb.style.background='rgba(242,41,91,.08)'; sb.style.color='var(--text)';
+        sb.innerHTML='Tu resultado está abajo, pero no pudimos enviar el email automáticamente. Escribinos a <a href="mailto:contacto@psyware.ar" style="color:var(--blue)">contacto@psyware.ar</a> y lo resolvemos.';
+      }
+      showResult(r);
+    }).catch(function(){
+      var sb=document.getElementById('sentBanner');
+      sb.style.background='rgba(242,41,91,.08)'; sb.style.color='var(--text)';
+      sb.innerHTML='Tu resultado está abajo. No pudimos enviar el email (revisá tu conexión). Escribinos a <a href="mailto:contacto@psyware.ar" style="color:var(--blue)">contacto@psyware.ar</a>.';
+      showResult(r);
+    }).then(function(){ btn.disabled=false; btn.textContent=oldTxt; });
+  });
+  document.getElementById('restartBtn').addEventListener('click', function(){
+    answers={};
+    quiz.querySelectorAll('input').forEach(function(x){x.checked=false;});
+    quiz.querySelectorAll('.diag-opt').forEach(function(o){o.classList.remove('is-selected');});
+    quiz.querySelectorAll('.diag-q').forEach(function(o){o.classList.remove('is-answered','is-missing');});
+    document.getElementById('result').classList.remove('is-shown');
+    document.getElementById('sentBanner').innerHTML='';
+    document.getElementById('captureSec').style.display='';
+    ['fNombre','fEmpresa','fEmail','fTel'].forEach(function(id){document.getElementById(id).value='';});
+    document.getElementById('formErr').textContent='';
+    updateProgress();
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.psyware.ar/"},
+    {"@type":"ListItem","position":2,"name":"Autodiagnósticos","item":"https://www.psyware.ar/diagnosticos.html"},
+    {"@type":"ListItem","position":3,"name":"Autodiagnóstico de Soberanía Tecnológica","item":"https://www.psyware.ar/diagnostico-soberania.html"}
+  ]
+}
+</script>
+</body>
+</html>

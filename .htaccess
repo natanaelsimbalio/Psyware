@@ -1,0 +1,75 @@
+# ============================================================
+# PSYWARE SSL — Apache / cPanel configuration
+# Security headers, forced HTTPS, directory listing lockdown
+# ============================================================
+
+# ---- Force HTTPS + canonical www host ----
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Redirect HTTP -> HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Redirect non-www -> www (matches canonical URLs used in meta tags)
+  RewriteCond %{HTTP_HOST} ^psyware\.ar [NC]
+  RewriteRule ^ https://www.psyware.ar%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ---- Disable directory listing ----
+Options -Indexes
+
+# ---- Agent-friendly 404s ----
+ErrorDocument 404 /404.html
+
+# ---- Block access to hidden/system files ----
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# ---- Markdown content negotiation (Accept: text/markdown) ----
+# Agents that send Accept: text/markdown (without text/html) receive the
+# markdown twin of the page at the SAME URL. Browsers (Accept: text/html...)
+# are unaffected. See acceptmarkdown.com.
+<IfModule mod_rewrite.c>
+  RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
+  RewriteCond %{HTTP_ACCEPT} !text/html [NC]
+  RewriteCond %{DOCUMENT_ROOT}/index.md -f
+  RewriteRule ^$ index.md [L]
+
+  RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
+  RewriteCond %{HTTP_ACCEPT} !text/html [NC]
+  RewriteCond %{DOCUMENT_ROOT}/$1.md -f
+  RewriteRule ^([^/]+)\.html$ $1.md [L]
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType text/markdown .md
+</IfModule>
+
+# Tell caches/CDNs that the response body varies by Accept (and encoding),
+# so the markdown and HTML variants of a URL are never cross-served from cache.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|md)$">
+    Header merge Vary "Accept, Accept-Encoding"
+  </FilesMatch>
+</IfModule>
+
+# ---- Security headers ----
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.afip.gob.ar; connect-src 'self' https://api.rss2json.com https://api.allorigins.win; frame-src https://maps.google.com https://www.google.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
+</IfModule>
+
+# ---- MIME sniffing / charset ----
+AddDefaultCharset UTF-8
+
+# ---- Prevent access to source-control / config leftovers ----
+<FilesMatch "(\.git|\.gitignore|\.env|composer\.(json|lock)|package(-lock)?\.json)$">
+  Require all denied
+</FilesMatch>

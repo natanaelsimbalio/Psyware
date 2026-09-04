@@ -1,0 +1,20 @@
+================================================================================
+WEBS (PSYWARE SSL) — HISTORIAL DE VERSIONES
+================================================================================
+Instrucciones: cada vez que agregues una funcionalidad o cambio importante,
+sumá una entrada nueva ARRIBA de esta línea con fecha y versión. No borres
+las versiones anteriores: esto es el historial completo del proyecto.
+================================================================================
+
+--------------------------------------------------------------------------------
+v1.0 — versión base
+--------------------------------------------------------------------------------
+Funciones base:
+- Sitio institucional multi-página: inicio, sobre nosotros, productos y
+  servicios, cursos, prensa, contacto.
+- Animaciones CSS y diseño responsive.
+- Recursos descargables en PDF.
+
+Stack: HTML/CSS/JS vanilla.
+
+Ver INFORME.txt para el detalle técnico completo.

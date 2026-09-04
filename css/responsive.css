@@ -1,0 +1,133 @@
+/* ============================================================
+   PSYWARE — Responsive overrides
+   Mobile styles live in styles.css; this file scales UP.
+   Breakpoints: 480 / 768 / 900 / 1024 / 1280
+   ============================================================ */
+
+@media (min-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --fs-3xl: 3.5rem;
+  }
+
+  .intro__grid {
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+
+  .capacitate__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .content-block__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .news__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  }
+
+  .footer__bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .service-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .item-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .item-list__entry {
+    flex: 1 1 45%;
+  }
+
+  .clients-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .clients-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-menu {
+    display: flex;
+  }
+}
+
+@media (max-width: 899.98px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: var(--nav-h);
+    inset-inline: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: var(--sp-6) var(--sp-5);
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 0;
+    border: none;
+    transform: translateX(100%);
+    transition: transform var(--dur-base) var(--ease-out);
+    overflow-y: auto;
+  }
+
+  .nav-menu.is-open {
+    transform: translateX(0);
+  }
+
+  .nav-menu a {
+    color: var(--dark);
+    font-size: var(--fs-lg);
+    padding: var(--sp-4) var(--sp-2);
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-block__grid.is-reverse {
+    direction: rtl;
+  }
+
+  .content-block__grid.is-reverse > * {
+    direction: ltr;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container,
+  .nav-container {
+    padding-inline: var(--sp-6);
+  }
+}
